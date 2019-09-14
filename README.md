@@ -2,6 +2,16 @@
 
 > A Vue.js project
 
+## 运行
+``` bash
+# 安装配置好node环境
+# 命令行cd到ACM-MISSIONS目录下
+npm run dev
+# 命令行cd到ACM-MISSIONS/server目录下
+node server.js
+# 过程需要用npm install安装部分依赖
+```
+
 ## 技术栈
 
 ``` bash
@@ -58,6 +68,7 @@
 3. Vue与Node运行在不同端口上，需要注意跨域问题
 4. 项目中的请求路径，数据库信息，express-session的密钥secret需要按环境修改
 5. 注意异步问题，尤其是数据库操作和爬虫
+6. node连接mysql失败，有可能是因为mysql版本过高，使用的密码加密方式不同
 ```
 
 ## 功能描述
