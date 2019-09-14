@@ -1,0 +1,353 @@
+<template>
+  <!-- 编辑新任务 弹窗内容开始 -->
+  <div id="viewDetail_background" class="back">
+    <div class="viewDetail">
+      <div id="viewDetail_close">
+        <span id="viewDetail_close-button">×</span>
+        <h2>详细内容</h2>
+      </div>
+      <div style="height:625px">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <form>
+                <div>
+                  <div class="row">
+                    <h3 class="col-sm-10 col-md-10 col-lg-10">阅读材料</h3>
+                    <label
+                      v-if="this.$store.getters.getIsLogin"
+                      class="col-sm-1 col-md-1 col-lg-1"
+                      @click="material_newupload"
+                    >⇧</label>
+                    <label
+                      v-if="this.$store.getters.getIsLogin"
+                      class="col-sm-1 col-md-1 col-lg-1"
+                      @click="material_newurl"
+                    >+</label>
+                  </div>
+                  <ul ref="material_urls">
+                    <li class="row">
+                      <a href="https://www.baidu.com">百度</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="row">
+                    <h3 class="col-sm-10 col-md-10 col-lg-10">实战例题</h3>
+                    <label class="col-sm-1 col-md-1 col-lg-1"></label>
+                    <label
+                      v-if="this.$store.getters.getIsLogin"
+                      class="col-sm-1 col-md-1 col-lg-1"
+                      @click="problem_newurl"
+                    >+</label>
+                  </div>
+                  <ul ref="problem_urls">
+                    <li class="row">
+                      <a href="https://www.baidu.com">百度</a>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <h3 id="viewDetail_foot">底部内容</h3> -->
+    </div>
+  </div>
+  <!-- 弹窗内容结束 -->
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      nodeId: ""
+    };
+  },
+  mounted() {
+    var this_vue = this;
+
+    var viewDetail_div = document.getElementById("viewDetail_background");
+    var viewDetail_close = document.getElementById("viewDetail_close-button");
+    viewDetail_close.onclick = function close() {
+      viewDetail_div.style.display = "none";
+      if (this_vue.nodeId != "") {
+        this_vue.$parent.upgradedetails(
+          this_vue.rebuildDetail(),
+          this_vue.nodeId
+        );
+      }
+      this_vue.nodeId = "";
+    };
+    window.onclick = function close(e) {
+      if (e.target == viewDetail_div) {
+        viewDetail_div.style.display = "none";
+        if (this_vue.nodeId != "") {
+          this_vue.$parent.upgradedetails(
+            this_vue.rebuildDetail(),
+            this_vue.nodeId
+          );
+        }
+        this_vue.nodeId = "";
+      }
+    };
+
+    layui.use(["form", "layedit", "laydate"], function() {
+      var form = layui.form,
+        layer = layui.layer,
+        layedit = layui.layedit,
+        laydate = layui.laydate;
+    });
+  },
+  methods: {
+    popup: function() {
+      var viewDetail_div = document.getElementById("viewDetail_background");
+      viewDetail_div.style.display = "block";
+    },
+    addaurl(name, url, belong_ul) {
+      let nli_str =
+        '<li class="row"><a href="' + url + '">' + name + "</a></li>";
+      let nli = $(nli_str);
+      if (this.$store.getters.getIsLogin) {
+        let nlab = $("<label>-</label>");
+        nlab.on("click", this.delaurl);
+        nli.append(nlab);
+      }
+      $(belong_ul).append(nli);
+    },
+    delaurl(event) {
+      var labdom = event.currentTarget;
+      var lidom = $(labdom).parent("li")[0];
+      $(lidom).remove();
+    },
+    addurls(detail, nodeId) {
+      this.nodeId = nodeId;
+      $(this.$refs.material_urls).empty();
+      $(this.$refs.problem_urls).empty();
+      for (var i = 0; i < detail.left_urls.length; i++) {
+        this.addaurl(
+          detail.left_urls[i].name,
+          detail.left_urls[i].url,
+          this.$refs.material_urls
+        );
+      }
+      for (var i = 0; i < detail.right_urls.length; i++) {
+        this.addaurl(
+          detail.right_urls[i].name,
+          detail.right_urls[i].url,
+          this.$refs.problem_urls
+        );
+      }
+    },
+    rebuildDetail() {
+      let detail = {
+        left_urls: [],
+        right_urls: []
+      };
+      let material_lis = $(this.$refs.material_urls).find("a");
+      for (var i = 0; i < material_lis.length; i++) {
+        detail.left_urls.push({
+          name: $(material_lis[i]).text(),
+          url: $(material_lis[i]).attr("href")
+        });
+      }
+      let problem_lis = $(this.$refs.problem_urls).find("a");
+      for (var i = 0; i < problem_lis.length; i++) {
+        detail.right_urls.push({
+          name: $(problem_lis[i]).text(),
+          url: $(problem_lis[i]).attr("href")
+        });
+      }
+      return detail;
+    },
+    material_newupload() {
+      var this_vue = this;
+      layer.open({
+        id: 1,
+        type: 1,
+        title: "上传阅读材料",
+        skin: "layui-layer-rim",
+        area: ["450px", "auto"],
+
+        content:
+          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<div class="col-sm-12">' +
+          '<div class="input-group">' +
+          '<span class="input-group-addon">材料命名：</span>' +
+          '<input id="d_new_material_name" class="form-control" placeholder="请输入材料名">' +
+          "</div>" +
+          '<div class="input-group">' +
+          '<span class="input-group-addon">点击上传材料：</span>' +
+          '<input id="d_new_material_file" class="form-control" type="file">' +
+          "</div>" +
+          "</div>" +
+          "</div>",
+        btn: ["添加", "取消"],
+        btn1: function(index, layero) {
+          var obj = document.getElementById("d_new_material_file");
+
+          var formData = new FormData();
+          var file = obj.files[0];
+          if (file == undefined) {
+            layer.msg("No file!", {
+              icon: 2,
+              time: 2000
+            });
+            return;
+          }
+          console.log(file);
+          formData.append("file", file);
+          $.ajax({
+            url: this_vue.$store.getters.getBaseUrl + "/postFile" /*接口域名地址*/,
+            type: "post",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(res) {
+              if (res.msg) {
+                this_vue.addaurl(
+                  $("#d_new_material_name").val(),
+                  res.fileurl,
+                  this_vue.$refs.material_urls
+                );
+
+                layer.msg("Successfully uploaded!", {
+                  icon: 1,
+                  time: 2000
+                });
+              } else {
+                layer.msg("Fail to upload!", {
+                  icon: 2,
+                  time: 2000
+                });
+              }
+            }
+          });
+
+          layer.close(index);
+        },
+        btn2: function(index, layero) {
+          layer.close(index);
+        }
+      });
+    },
+    material_newurl() {
+      var this_vue = this;
+      layer.open({
+        id: 1,
+        type: 1,
+        title: "添加阅读材料",
+        skin: "layui-layer-rim",
+        area: ["450px", "auto"],
+
+        content:
+          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<div class="col-sm-12">' +
+          '<div class="input-group">' +
+          '<span class="input-group-addon">材料命名：</span>' +
+          '<input id="d_new_material_name" class="form-control" placeholder="请输入材料名">' +
+          "</div>" +
+          '<div class="input-group">' +
+          '<span class="input-group-addon">材料地址：</span>' +
+          '<input id="d_new_material_url" class="form-control" placeholder="请输入材料地址">' +
+          "</div>" +
+          "</div>" +
+          "</div>",
+        btn: ["添加", "取消"],
+        btn1: function(index, layero) {
+          this_vue.addaurl(
+            $("#d_new_material_name").val(),
+            $("#d_new_material_url").val(),
+            this_vue.$refs.material_urls
+          );
+          layer.close(index);
+        },
+        btn2: function(index, layero) {
+          layer.close(index);
+        }
+      });
+    },
+    problem_newurl() {
+      var this_vue = this;
+      layer.open({
+        id: 1,
+        type: 1,
+        title: "添加实战例题",
+        skin: "layui-layer-rim",
+        area: ["450px", "auto"],
+
+        content:
+          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<div class="col-sm-12">' +
+          '<div class="input-group">' +
+          '<span class="input-group-addon">例题命名：</span>' +
+          '<input id="d_new_problem_name" class="form-control" placeholder="请输入例题名">' +
+          "</div>" +
+          '<div class="input-group">' +
+          '<span class="input-group-addon">例题地址：</span>' +
+          '<input id="d_new_problem_url" class="form-control" placeholder="请输入材料地址">' +
+          "</div>" +
+          "</div>" +
+          "</div>",
+        btn: ["添加", "取消"],
+        btn1: function(index, layero) {
+          this_vue.addaurl(
+            $("#d_new_problem_name").val(),
+            $("#d_new_problem_url").val(),
+            this_vue.$refs.problem_urls
+          );
+          layer.close(index);
+        },
+        btn2: function(index, layero) {
+          layer.close(index);
+        }
+      });
+    }
+  }
+};
+</script>
+
+<style scoped>
+/* @import "../../static/bootstrap-3.3.7-dist/css/bootstrap.min.css"; */
+ul li {
+  list-style: none;
+}
+#viewDetail_background {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  text-align: 1.5;
+  z-index: 1000;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.viewDetail {
+  background: #eeeeee;
+  width: 56%;
+  margin: 4% auto;
+  overflow: auto;
+}
+
+#viewDetail_close {
+  padding: 5px;
+  background: #ff6a6a;
+}
+
+#viewDetail_close-button {
+  float: right;
+  font-size: 30px;
+}
+
+/* #viewDetail_foot {
+  padding: 5px 0;
+  text-align: center;
+  background: #ff6a6a;
+  color: white;
+} */
+</style>

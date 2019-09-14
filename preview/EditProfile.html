@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>
+        EditProfile
+    </title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        ul li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <img alt="140x140" src="BG4.jpg" class="img-circle" style="height: 175px;width:175px" />
+                <span class="help-block">点击头像以更换头像.</span>
+                <form>
+                    <input type="file" style="visibility:hidden"></input>
+                    <fieldset>
+                        <legend>个人相关</legend>
+                        <label class="col-sm-6 col-md-6 col-lg-6">昵称</label><input class="col-sm-6 col-md-6 col-lg-6"
+                            type="text" />
+                        <label class="col-sm-6 col-md-6 col-lg-6">codeforces 用户名</label><input
+                            class="col-sm-6 col-md-6 col-lg-6" type="text" /> <br />
+                        <label class="col-sm-6 col-md-6 col-lg-6">sdutacm 用户名</label><input
+                            class="col-sm-6 col-md-6 col-lg-6" type="text" /> <br />
+                        <label class="col-sm-6 col-md-6 col-lg-6">个人博客</label>
+                        <ul class="col-sm-6 col-md-6 col-lg-6" style="padding: 0">
+                            <li><input class="col-sm-12 col-md-12 col-lg-12" type="text" /></li>
+                            <li><input class="col-sm-12 col-md-12 col-lg-12" type="text" /></li>
+                            <li><input class="col-sm-12 col-md-12 col-lg-12" type="text" /></li>
+                        </ul>
+                        <span class="help-block">修改任何信息都需要点击提交.</span>
+                        <button type="submit" class="btn">提交</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
