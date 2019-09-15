@@ -164,8 +164,8 @@ exports.delPersonalMission = function (username, id) {
 
 exports.newaMission = function (username, new_mission) {
     var promise = new Promise(function (resolve, reject) {
-        let addSql = 'INSERT INTO missions_' + username + '(name,brief,belong,start_t,end_t,details) VALUES(?,?,?,?,?,?)';
-        let addSqlParams = [new_mission.nam_name, new_mission.nam_brief, "Personal", new_mission.nam_timespan.substr(0, 19), new_mission.nam_timespan.substr(22, 19), JSON.stringify(new_mission.detail)];
+        let addSql = 'INSERT INTO missions_' + username + '(name,brief,belong,start_t,end_t,details,status) VALUES(?,?,?,?,?,?,?)';
+        let addSqlParams = [new_mission.nam_name, new_mission.nam_brief, "Personal", new_mission.nam_timespan.substr(0, 19), new_mission.nam_timespan.substr(22, 19), JSON.stringify(new_mission.detail),"unknown"];
         connection.query(addSql, addSqlParams, function (err, result) {
             if (err) {
                 console.log('[INSERT ERROR] - ', err.message);

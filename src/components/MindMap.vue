@@ -2,11 +2,11 @@
   <div id="middle_block">
     <label v-if="this.$store.getters.getIsLogin" @click="upgMindMap">✓</label>
     <vD ref="viewD"></vD>
-    <div id="mindmap_block" style="width:100%;height:96.5%">
+    <div id="mindmap_block" style="width:100%;height:96.5%;background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%">
       <div
         ref="mindmap"
         class="hTree bar"
-        style="overflow: scroll;border: 2px solid #4F4F4F;border-radius: 10px"
+        style="overflow: scroll"
       ></div>
     </div>
   </div>

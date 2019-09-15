@@ -60,12 +60,10 @@ export default {
 
 <style scoped>
 @import "../../static/bootstrap-3.3.7-dist/css/bootstrap.min.css";
-.miss {
+.unfinished {
   background-color: red;
 }
-.pass {
+.finished {
   background-color: aquamarine;
-}
-.going {
 }
 </style>

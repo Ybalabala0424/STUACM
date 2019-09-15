@@ -1,7 +1,7 @@
 <template>
   <div v-if="hasAcmer" class="container" style="width: 100%">
     <eP ref="editP"></eP>
-    <div class="row">
+    <div class="row" style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%">
       <div class="col-sm-3 col-md-3 col-lg-2">
         <h3>STUACM</h3>
       </div>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3 col-md-2 col-lg-2">
+      <div class="col-sm-3 col-md-2 col-lg-2" style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%">
         <sPf></sPf>
       </div>
       <div class="col-sm-3 col-md-2 col-lg-10">

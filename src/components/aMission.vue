@@ -134,7 +134,13 @@ export default {
       let nli = $(nli_str);
       $(belong_ul).append(nli);
     },
+    getStatusBGC(status){
+      if(status=="Accepted") return "aquamarine";
+      if(status=="NotAccepted") return "#ff6a6a";
+    },
     addapro: function(name, url, belong_tbody, status0, status1) {
+      status0 = (status0=="Accepted"?"Accepted":"NotAccepted");
+      status1 = (status1=="Accepted"?"Accepted":"NotAccepted");
       let ntr_str =
         '\
       <tr>\
@@ -151,6 +157,8 @@ export default {
         "</td>\
       </tr>";
       let ntr = $(ntr_str);
+      $(ntr.children("td")[1]).css("background-color",this.getStatusBGC(status0));
+      $(ntr.children("td")[2]).css("background-color",this.getStatusBGC(status1));
       $(belong_tbody).append(ntr);
     },
     fillMissionDetail: function(title, start_t, end_t, belong, detail) {
@@ -222,4 +230,11 @@ export default {
   background: #ff6a6a;
   color: white;
 } */
+.Accepted{
+  background-color: aquamarine
+}
+
+.NotAccepted{
+  background-color: #ff6a6a
+}
 </style>

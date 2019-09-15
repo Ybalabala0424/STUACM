@@ -48,9 +48,11 @@ function getInfo(url, cnt, tot, infoArray) {
                 var verdict = $($(atr[5]).children("span")[0]).attr("submissionverdict");    // state of the submission
 
                 if (infoArray[problemurl] == undefined) {
+                    // console.log("codeforces_problemUrl: " + problemurl);
+                    // console.log("codeforces_verdict: " + verdict);
                     infoArray[problemurl] = {
-                        "problem": problem,
-                        "verdict": verdict
+                        problem: problem,
+                        verdict: verdict
                     }
                 }
             }

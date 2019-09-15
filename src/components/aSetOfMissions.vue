@@ -5,7 +5,7 @@
         <div class="container">
           <div
             class="row"
-            style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1.5%"
+            style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%"
           >
             <label class="col-sm-4 col-md-4 col-lg-4">{{info.year}}</label>
             <label class="col-sm-4 col-md-4 col-lg-4">{{info.month}}</label>
@@ -18,7 +18,7 @@
       <div class="accordion-inner">
         <div class="container">
           <div class="row" style="width:100%">
-            <table class="table">
+            <table class="table" style="margin-bottom:1%">
               <tbody>
                 <aPoM v-for="(info,index) in info.missions" :key="index" :info="info"></aPoM>
               </tbody>

@@ -59,6 +59,8 @@ node server.js
 	server.js: 服务ACM-MISSIONS的服务器文件
 	CODEFORCES_worker.js: codeforces爬虫，输入用户名，爬取其所有提交
 	SDUT_worker.js: sdutacm爬虫，输入用户名，爬取其所有提交
+	refresh.js: 利用爬虫，逐个用户，把该用户绑定的cf,sdutacm账号下所有提交记录爬下来，逐个任务逐道题目在提交记录中查找测评状态，更新数据库中的状态
+	releaseOfficialMission.js: 官方发布任务，把任务添加到所有用户下
 ```
 
 ## 注意事项
@@ -86,9 +88,9 @@ node server.js
 	1. 完善css
 	2. 主页资源站
 后端：
-	1. Official为所有人添加题目
+	1. ~~Official为所有人添加题目~~[done]
 	2. 注册激活码数据库
-	3. 爬虫刷新状态
+	3. ~~爬虫刷新状态~~[done]
 	4. 数据库取email邮件通知
 	5. 爬虫改为并发
 ```
