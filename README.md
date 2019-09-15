@@ -10,13 +10,19 @@ npm run dev
 # 命令行cd到ACM-MISSIONS/server目录下
 node server.js
 # 过程需要用npm install安装部分依赖
+
+# 需要利用爬虫更新任务状态
+node refresh.js
+# 需要官方发布题目，更改releaseOfficialMission.js中new_mission对象的内容，然后
+node releaseOfficialMission.js
 ```
 
 ## 技术栈
 
 ``` bash
 前端Vue.js，用到vuex、vue-resource。
-后端Node.js，用到express、formidable、express-session、mysql。
+后端Node.js，用到express、formidable、express-session、mysql；
+用Node.js写的爬虫，用到superagent、cheerio。
 ```
 
 ## 文件结构
