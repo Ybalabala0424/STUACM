@@ -67,10 +67,54 @@ node releaseOfficialMission.js
 	SDUT_worker.js: sdutacm爬虫，输入用户名，爬取其所有提交
 	refresh.js: 利用爬虫，逐个用户，把该用户绑定的cf,sdutacm账号下所有提交记录爬下来，逐个任务逐道题目在提交记录中查找测评状态，更新数据库中的状态
 	releaseOfficialMission.js: 官方发布任务，把任务添加到所有用户下
+	addCodes.js: 向codes数据库添加可用的激活码
 ```
-
-## 注意事项
+## 数据库相关代码
 ``` bash
+// 创建存储用户信息的表
+CREATE TABLE `stuacm`.`user` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
+  `username` VARCHAR(45) NOT NULL UNIQUE,
+  `password` VARCHAR(45) NOT NULL,
+  `nickname` VARCHAR(45) NULL,
+  `signature` TINYTEXT NULL,
+  `codeforces` VARCHAR(45) NULL,
+  `sdutacm` VARCHAR(45) NULL,
+  `blogs` JSON NULL,
+  `img_url` VARCHAR(128) NULL,
+  `enroll_t` VARCHAR(45) NULL,
+  `email` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`id`, `username`));
+
+// 创建与用户名对应的一张专门存储该用户相关的任务信息的表
+CREATE TABLE `stuacm`.`missions_<username>` (
+  `id` INT NOT NULL AUTO_INCREMENT UNIQUE,
+  `name` VARCHAR(45) NULL,
+  `brief` TINYTEXT NULL,
+  `belong` VARCHAR(45) NULL,
+  `start_t` VARCHAR(45) NULL,
+  `end_t` VARCHAR(45) NULL,
+  `status` VARCHAR(45) NULL,
+  `details` JSON NULL,
+  PRIMARY KEY (`id`));
+
+// 创建与用户名对应的一张专门存储该用户相关的导图的表
+CREATE TABLE `stuacm`.`mindmaps_<username>` (
+  `id` INT NOT NULL AUTO_INCREMENT UNIQUE,
+  `name` VARCHAR(45) NULL,
+  `brief` TINYTEXT NULL,
+  `details` JSON NULL,
+  PRIMARY KEY (`id`));
+
+// 创建一张存储激活码的表
+CREATE TABLE `stuacm`.`codes` (
+  `id` INT NOT NULL AUTO_INCREMENT UNIQUE,
+  `value` VARCHAR(64) NULL,
+  `isused` INT NULL,
+  PRIMARY KEY (`id`));
+```
+## 注意事项
+``` mysql
 1. Vue与layui存在莫名冲突，layui的折叠面板在Vue中可能需要手动刷新页面才能正常使用
 2. 该项目同时使用了layui和boostrap两个ui库，使用时需要格外注意避免两个ui库之间的冲突
 3. Vue与Node运行在不同端口上，需要注意跨域问题
@@ -95,7 +139,7 @@ node releaseOfficialMission.js
 	2. 主页资源站
 后端：
 	1. ~~Official为所有人添加题目~~[done]
-	2. 注册激活码数据库
+	2. ~~注册激活码数据库~~[done]
 	3. ~~爬虫刷新状态~~[done]
 	4. 数据库取email邮件通知
 	5. 爬虫改为并发

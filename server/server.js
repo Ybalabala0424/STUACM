@@ -524,14 +524,23 @@ app.post('/enroll', function (req, res, next) {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~todo: 查询激活码是否存在且有效
     sql_handler.isExits(req.body.username).then((info) => {
         if (info.state == "ISNTEXITS") {
-            var myDate = new Date();
-            var dt = myDate.toLocaleString();
-            sql_handler.createUser(req.body.username, req.body.password, req.body.email, dt).then((info) => {
-                res.send({
-                    msg: true
-                })
+            sql_handler.testCode(req.body.code).then((data) => {
+                if (data.state == "CANUSE") {
+                    var myDate = new Date();
+                    var dt = myDate.toLocaleString();
+                    sql_handler.createUser(req.body.username, req.body.password, req.body.email, dt).then((info) => {
+                        res.send({
+                            msg: true
+                        })
+                    })
+                }else{
+                    res.send({
+                        msg: false,
+                        info: data.state
+                    })
+                }
             })
-        }else{
+        } else {
             res.send({
                 msg: false,
                 info: info.state

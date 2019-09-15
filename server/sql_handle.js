@@ -6,6 +6,48 @@ var connection = mysql.createConnection({
     database: 'stuacm'
 });
 
+useCode = function(code){
+    var promise = new Promise(function (resolve, reject) {
+        updateSql = "UPDATE `stuacm`.`codes` SET `isused` = 1 WHERE (`value` = '" + code + "');";
+        connection.query(updateSql, function (err, result) {
+            if (err) {
+                console.log('[UPDATE ERROR] - ', err.message);
+                reject();
+            } else {
+                resolve();
+            }
+        });
+    })
+    return promise;
+}
+
+exports.testCode = function(code){
+    var promise = new Promise(function (resolve, reject) {
+        let res = {};
+        let sql = 'SELECT * FROM codes WHERE value=?';
+        let sqlParams = [code];
+        connection.query(sql, sqlParams, function (err, result) {
+            if (err) {
+                res.state = "ERROR"
+                reject(res)
+            } else {
+                if (result.length == 0) {
+                    res.state = "ISNTEXITS";
+                } else {
+                    if(result[0].isused==1){
+                        res.state = "ISUSED";
+                    }else{
+                        res.state = "CANUSE"
+                        useCode(code);
+                    }
+                }
+                resolve(res);
+            }
+        })
+    })
+    return promise;
+}
+
 exports.createUser = function (username, password, email, enroll_t) {
     var promise = new Promise(function (resolve, reject) {
         let res = {};
