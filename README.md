@@ -117,7 +117,7 @@ CREATE TABLE `stuacm`.`codes` (
 ``` mysql
 1. Vue与layui存在莫名冲突，layui的折叠面板在Vue中可能需要手动刷新页面才能正常使用
 2. 该项目同时使用了layui和boostrap两个ui库，使用时需要格外注意避免两个ui库之间的冲突
-3. Vue与Node运行在不同端口上，需要注意跨域问题
+3. Vue与Node运行在不同端口上，需要注意跨域问题，特别的，vue-resource和ajax都需要设置
 4. 项目中的请求路径，数据库信息，express-session的密钥secret需要按环境修改
 5. 注意异步问题，尤其是数据库操作和爬虫
 6. node连接mysql失败，有可能是因为mysql版本过高，使用的密码加密方式不同

@@ -76,6 +76,7 @@ export default {
             alert("ACMER不存在");
             window.location.href = "/";
           } else {
+            this.$store.dispatch("asetUserName", acmer);
             this.hasAcmer = true;
           }
         });

@@ -66,6 +66,7 @@ export default {
     };
   },
   mounted() {
+    $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
     var this_vue = this;
 
     var viewDetail_div = document.getElementById("viewDetail_background");

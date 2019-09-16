@@ -97,6 +97,7 @@ export default {
       var uploadInst = upload.render({
         elem: "#test1",
         url: this_vue.$store.getters.getBaseUrl + "/upgProfileImg",
+        xhrFields: {withCredentials: true},
         data:{
           username: this_vue.$store.getters.getUserName
         },

@@ -1,15 +1,15 @@
 <template>
-  <div class="accordion-group">
+  <div class="accordion-group" style="width:100%">
     <div class="accordion-heading" ref="heading">
       <a ref="heading_a" class="accordion-toggle" data-toggle="collapse" data-parent href>
         <div class="container">
           <div
             class="row"
-            style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%"
+            style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%;width:100%;height:40px"
           >
-            <label class="col-sm-4 col-md-4 col-lg-4">{{info.year}}</label>
-            <label class="col-sm-4 col-md-4 col-lg-4">{{info.month}}</label>
-            <label class="col-sm-4 col-md-4 col-lg-4">{{info.status}}</label>
+            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%">{{info.year}}</label>
+            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%">{{info.month}}</label>
+            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%">{{info.status}}</label>
           </div>
         </div>
       </a>

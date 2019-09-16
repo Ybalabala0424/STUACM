@@ -67,6 +67,7 @@ export default {
     return {};
   },
   mounted() {
+    $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
     var newMission_div = document.getElementById("newMission_background");
     var newMission_close = document.getElementById("newMission_close-button");
     newMission_close.onclick = function close() {
