@@ -136,7 +136,7 @@ CREATE TABLE `stuacm`.`codes` (
 ``` bash
 前端:
 	1. 完善css
-	2. 主页资源站
+	2. ~~主页资源站~~[almost done]
 后端：
 	1. ~~Official为所有人添加题目~~[done]
 	2. ~~注册激活码数据库~~[done]
