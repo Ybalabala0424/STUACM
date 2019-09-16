@@ -54,6 +54,7 @@ node releaseOfficialMission.js
 **ACM-MISSIONS/server/public**
 	files: 该目录保存用户上传的文件
 	imgs: 该目录保存用户头像图片
+	resource: 主页用到的各种公开资源
 	
 **ACM-MISSIONS/server**
 	package.json:
@@ -136,7 +137,7 @@ CREATE TABLE `stuacm`.`codes` (
 ``` bash
 前端:
 	1. 完善css
-	2. ~~主页资源站~~[almost done]
+	2. ~~主页资源站~~[done]
 后端：
 	1. ~~Official为所有人添加题目~~[done]
 	2. ~~注册激活码数据库~~[done]

@@ -7,7 +7,7 @@ import Enroll from '@/components/Enroll'
 import Home from '@/components/Home'
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -46,3 +46,15 @@ export default new Router({
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  console.log(to.fullPath)
+  if((to.fullPath).toString().substr(0,8)=="/section"){
+    next({
+      path: '/',
+    });
+  }else{
+    next();
+  } 
+});
+
+export default router
