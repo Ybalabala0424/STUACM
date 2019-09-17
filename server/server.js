@@ -47,21 +47,23 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 打包前端项目，整合前，需要下面代码解决跨域问题，整合后则不存在跨域问题
+
 //allow custom header and CORS
-app.all('*', function (req, res, next) {
-    //当Access-Control-Allow-Credentials设为true时，Access-Control-Allow-Origin不能设置为星号
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
-    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-    //将Access-Control-Allow-Credentials设为true
-    res.header('Access-Control-Allow-Credentials', true);
-    if (req.method == 'OPTIONS') {
-        res.sendStatus(200);    // 让options请求快速返回
-    }
-    else {
-        next();
-    }
-});
+// app.all('*', function (req, res, next) {
+//     //当Access-Control-Allow-Credentials设为true时，Access-Control-Allow-Origin不能设置为星号
+//     res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+//     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+//     //将Access-Control-Allow-Credentials设为true
+//     res.header('Access-Control-Allow-Credentials', true);
+//     if (req.method == 'OPTIONS') {
+//         res.sendStatus(200);    // 让options请求快速返回
+//     }
+//     else {
+//         next();
+//     }
+// });
 
 // app.all('*', function(req, res, next) {
 //     res.header("Access-Control-Allow-Headers", "X-Requested-With");
