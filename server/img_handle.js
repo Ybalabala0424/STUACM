@@ -49,7 +49,7 @@ exports.doAdd = function (req, res, next) {//对应前端请求的路径，请�
                 url = form.uploadDir + "/" + nfn;
                 fs.renameSync(file[1].path, url);    // 重命名文件，默认的文件名是带有一串编码的，我们要把它还原为它原先的名字。
             });
-            var new_imgurl = "http://127.0.0.1:8081/imgs/"+nfn;
+            var new_imgurl = "http://www.stuacm.club:8081/imgs/"+nfn;
             sql_handler.updateImgUrl(username,new_imgurl);
             res.send({
                 msg: true,

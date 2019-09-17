@@ -50,7 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //allow custom header and CORS
 app.all('*', function (req, res, next) {
     //当Access-Control-Allow-Credentials设为true时，Access-Control-Allow-Origin不能设置为星号
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+    res.header('Access-Control-Allow-Origin', 'http://www.stuacm.club');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     //将Access-Control-Allow-Credentials设为true

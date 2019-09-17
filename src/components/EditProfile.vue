@@ -60,10 +60,10 @@
                       </li>
                     </ul>
                   </div>
-                  <span class="help-block">修改任何信息都需要点击提交.</span>
-                  <button type="submit" class="btn" @click="UpgProfile">提交</button>
-                </fieldset>
-              </form>
+</fieldset>
+</form>            
+      <span class="help-block">修改任何信息都需要点击提交.</span>
+                  <button type="buttun" class="btn" @click="UpgProfile">提交</button>
             </div>
           </div>
         </div>

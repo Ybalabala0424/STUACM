@@ -34,53 +34,56 @@
         <hr />
         <h2 id="section-2">电子资源</h2>
         <a
-          href="http://127.0.0.1:8081/resource/e-resources/Junior Training Sheet.xlsx"
+          href="http://www.stuacm.club:8081/resource/e-resources/Junior Training Sheet.xlsx"
           class="list-group-item"
         >Junior Training Sheet.xlsx</a>
         <a
-          href="http://127.0.0.1:8081/resource/e-resources/图论总结 by amber.pdf"
+          href="http://www.stuacm.club:8081/resource/e-resources/图论总结 by amber.pdf"
           class="list-group-item"
         >图论总结 by amber.pdf</a>
-        <a href="http://127.0.0.1:8081/resource/e-resources/背包问题九讲.pdf" class="list-group-item">背包问题九讲.pdf</a>
+        <a href="http://www.stuacm.club:8081/resource/e-resources/背包问题九讲.pdf" class="list-group-item">背包问题九讲.pdf</a>
         <hr />
         <h2 id="section-3">常用网站</h2>
         <a href="http://codeforces.com/" class="list-group-item">codeforces</a>
         <a href="https://acm.sdut.edu.cn/onlinejudge2/" class="list-group-item">山东理工ACM OJ</a>
+	<hr/>
         <h2 id="section-4">课件材料</h2>
-        <a href="http://127.0.0.1:8081/resource/courseware/ACM竞赛.pdf" class="list-group-item">ACM竞赛.pdf</a>
+        <a href="http://www.stuacm.club:8081/resource/courseware/ACM竞赛.pdf" class="list-group-item">ACM竞赛.pdf</a>
         <a
-          href="http://127.0.0.1:8081/resource/courseware/汕头大学 ACM 模板.md"
+          href="http://www.stuacm.club:8081/resource/courseware/汕头大学 ACM 模板.md"
           class="list-group-item"
         >汕头大学 ACM 模板.md</a>
         <a
-          href="http://127.0.0.1:8081/resource/courseware/汕头大学 ACM 模板.pdf"
+          href="http://www.stuacm.club:8081/resource/courseware/汕头大学 ACM 模板.pdf"
           class="list-group-item"
         >汕头大学 ACM 模板.pdf</a>
-        <h2 id="section-5">赛事题解</h2>
+        <hr/>
+	<h2 id="section-5">赛事题解</h2>
         <a
-          href="http://127.0.0.1:8081/resource/solutions/2018ICPC沈阳网络赛题解.pdf"
+          href="http://www.stuacm.club:8081/resource/solutions/2018ICPC沈阳网络赛题解.pdf"
           class="list-group-item"
         >2018ICPC沈阳网络赛题解.pdf</a>
         <a
-          href="http://127.0.0.1:8081/resource/solutions/ACM-ICPC 2018 Jiaozuo Online Contest - EOJ Wiki.pdf"
+          href="http://www.stuacm.club:8081/resource/solutions/ACM-ICPC 2018 Jiaozuo Online Contest - EOJ Wiki.pdf"
           class="list-group-item"
         >ACM-ICPC 2018 Jiaozuo Online Contest - EOJ Wiki.pdf</a>
         <a
-          href="http://127.0.0.1:8081/resource/solutions/ACM-ICPC 2018 Nanjing Online Contest - EOJ Wiki.pdf"
+          href="http://www.stuacm.club:8081/resource/solutions/ACM-ICPC 2018 Nanjing Online Contest - EOJ Wiki.pdf"
           class="list-group-item"
         >ACM-ICPC 2018 Nanjing Online Contest - EOJ Wiki.pdf</a>
         <a
-          href="http://127.0.0.1:8081/resource/solutions/ACM-ICPC 2018 Qingdao Online Contest - EOJ Wiki.pdf"
+          href="http://www.stuacm.club:8081/resource/solutions/ACM-ICPC 2018 Qingdao Online Contest - EOJ Wiki.pdf"
           class="list-group-item"
         >ACM-ICPC 2018 Qingdao Online Contest - EOJ Wiki.pdf</a>
         <a
-          href="http://127.0.0.1:8081/resource/solutions/ACM-ICPC 2018 Xuzhou Online Contest - EOJ Wiki.pdf"
+          href="http://www.stuacm.club:8081/resource/solutions/ACM-ICPC 2018 Xuzhou Online Contest - EOJ Wiki.pdf"
           class="list-group-item"
         >ACM-ICPC 2018 Xuzhou Online Contest - EOJ Wiki.pdf</a>
         <hr />
         <h2 id="section-6">发展相册</h2>
         <img alt="杨金朋.jpg" />
         <img alt="卢义文.jpg" />
+        <hr/>
       </div>
     </div>
   </div>

@@ -18,7 +18,6 @@
           <p ref="user_signature">...</p>
         </blockquote>
         <form>
-          <fieldset>
             <legend>个人相关</legend>
             <label class="col-sm-6 col-md-6 col-lg-6">codeforces：</label>
             <span ref="user_codeforces" class="col-sm-6 col-md-6 col-lg-6">...</span>
@@ -28,18 +27,16 @@
             <div class="col-sm-4 col-md-4 col-lg-4"></div>
             <ul ref="user_blogs" class="col-sm-8 col-md-8 col-lg-8">
               <li>
-                <a href="javascript:;">...</a>
+                <a href="">...</a>
               </li>
               <li>
-                <a href="javascript:;">...</a>
+                <a href="">...</a>
               </li>
               <li>
-                <a href="javascript:;">...</a>
+                <a href="">...</a>
               </li>
             </ul>
-          </fieldset>
         </form>
-        <setfield>
           <div class="accordion" id="show_mindmaps">
             <div class="accordion-group">
               <div class="accordion-heading">
@@ -63,7 +60,6 @@
               </div>
             </div>
           </div>
-        </setfield>
       </div>
     </div>
   </div>
@@ -121,15 +117,12 @@ export default {
       $(this.$refs.user_signature).text(profile.user_signature);
       $(this.$refs.user_codeforces).text(profile.user_codeforces);
       $(this.$refs.user_sdutacm).text(profile.user_sdutacm);
-      for (var i = 0; i < 3; i++) {
-        $($(this.$refs.user_blogs).find("a")[i]).attr(
-          "href",
-          profile.user_blogs[i].url
-        );
-        $($(this.$refs.user_blogs).find("a")[i]).text(
-          profile.user_blogs[i].name
-        );
-      }
+	$($(this.$refs.user_blogs).find("a")[0]).attr("href",profile.user_blogs[0].url);
+	$($(this.$refs.user_blogs).find("a")[1]).attr("href",profile.user_blogs[1].url);
+	$($(this.$refs.user_blogs).find("a")[2]).attr("href",profile.user_blogs[2].url);
+        $($(this.$refs.user_blogs).find("a")[0]).text(profile.user_blogs[0].name);
+        $($(this.$refs.user_blogs).find("a")[1]).text(profile.user_blogs[1].name);
+        $($(this.$refs.user_blogs).find("a")[2]).text(profile.user_blogs[2].name);
     },
     refreshMindMapBox: function() {
       var json = {

@@ -48,7 +48,7 @@ exports.doAdd = function (req, res, next) {//对应前端请求的路径，请�
             });
             res.send({
                 msg: true,
-                fileurl: "http://127.0.0.1:8081/files/"+nfn
+                fileurl: "http://www.stuacm.club:8081/files/"+nfn
             });
         });
 };

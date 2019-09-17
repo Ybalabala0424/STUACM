@@ -49,10 +49,11 @@ exports.testCode = function(code){
 }
 
 exports.createUser = function (username, password, email, enroll_t) {
+    let init_blogs = '[{"url":"","name":""},{"url":"","name":""},{"url":"","name":""}]'
     var promise = new Promise(function (resolve, reject) {
         let res = {};
-        let addSql = 'INSERT INTO user(username,password,email,enroll_t) VALUES(?,?,?,?)';
-        let addSqlParams = [username, password, email, enroll_t];
+        let addSql = 'INSERT INTO user(username,password,email,enroll_t,blogs) VALUES(?,?,?,?,?)';
+        let addSqlParams = [username, password, email, enroll_t, blogs];
         connection.query(addSql, addSqlParams, function (err, result) {
             if (err) {
                 res.state = 'ERROR';

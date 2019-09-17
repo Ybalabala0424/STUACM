@@ -4,7 +4,7 @@ Vue.use(Vuex);
 const state = {   //要设置的全局访问的state对象
     username : "aa",
     token : false,
-    baseUrl : "http://127.0.0.1:8081", // "http://172.16.164.90:8081",
+    baseUrl : "http://www.stuacm.club:8081", // "http://172.16.164.90:8081",
     isLogin : false
 };
 const getters = {   //实时监听state值的变化(最新状态)

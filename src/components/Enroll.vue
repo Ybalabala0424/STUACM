@@ -6,8 +6,11 @@
 <script>
 export default {
     mounted(){
-      var this_vue = this;
-      layer.open({
+    var this_vue = this;
+    layui.use(['form','layedit','laydate'],function(){
+	var layer = layui.layer;
+    });      
+    layui.layer.open({
         id: 1,
         type: 1,
         title: "注册-激活",
