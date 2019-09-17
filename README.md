@@ -62,6 +62,7 @@ node releaseOfficialMission.js
 	files: 该目录保存用户上传的文件
 	imgs: 该目录保存用户头像图片
 	resource: 主页用到的各种公开资源
+	dist: 该目录为前端npm run build生成的静态资源文件夹
 	
 **ACM-MISSIONS/server**
 	package.json:
