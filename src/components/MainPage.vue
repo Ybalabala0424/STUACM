@@ -70,7 +70,7 @@ export default {
     console.log(acmer);
     if (acmer == null) {
       alert("请附带ACMER参数");
-      window.location.href = "/";
+      window.location.href = this.$store.getters.getBaseUrl+"/Home";
     } else {
       var json = {
         username: acmer
@@ -81,7 +81,7 @@ export default {
           res = res.body;
           if (!res.msg) {
             alert("ACMER不存在");
-            window.location.href = "/";
+            window.location.href = this.$store.getters.getBaseUrl+"/Home";
           } else {
             this.$store.dispatch("asetUserName", acmer);
             this.hasAcmer = true;

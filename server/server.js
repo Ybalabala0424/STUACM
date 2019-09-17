@@ -266,6 +266,10 @@ var profile2 = {
     ]
 }
 
+app.get('/Home',function(req,res,next){
+    res.redirect("./Home.html");
+})
+
 app.post('/getProfile', function (req, res, next) {
     console.log(req.body);
     sql_handler.getProfile(req.body.username).then((info) => {

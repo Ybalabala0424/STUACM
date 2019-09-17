@@ -6,6 +6,7 @@
 ``` bash
 # 安装配置好node环境
 # 命令行cd到ACM-MISSIONS目录下
+npm install
 npm run dev
 # 命令行cd到ACM-MISSIONS/server目录下
 node server.js
@@ -36,7 +37,7 @@ node releaseOfficialMission.js
 	index.js: 该文件用vuex实现全局变量的存储
 	
 **ACM-MISSIONS/src/components**
-	Home.vue: 主页，主要用于提供各种文件，网站资源
+	Home.vue: 主页，主要用于提供各种文件，网站资源（现已把首页移至后端，该组件被停用）
 	Enroll.vue: 注册页面
 	MainPage.vue: 主页面
 	showProfile.vue: 主页面中左侧展示个人信息的组件
@@ -52,6 +53,7 @@ node releaseOfficialMission.js
 	EditProfile.vue: 修改个人信息时，填写表单的弹出框
 	
 **ACM-MISSIONS/server/public**
+	Home.html: 首页
 	files: 该目录保存用户上传的文件
 	imgs: 该目录保存用户头像图片
 	resource: 主页用到的各种公开资源

@@ -4,19 +4,13 @@ import MissionsPage from '@/components/MissionsPage'
 import MainPage from '@/components/MainPage'
 import MindMap from '@/components/MindMap'
 import Enroll from '@/components/Enroll'
-import Home from '@/components/Home'
 Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/Home'
-    },
-    {
-      path: '/Home',
-      name: 'Home',
-      component: Home,
+      redirect: 'MainPage'
     },
     {
       path: '/Enroll',
@@ -46,15 +40,16 @@ const router = new Router({
     }
   ]
 })
-router.beforeEach((to, from, next) => {
-  console.log(to.fullPath)
-  if((to.fullPath).toString().substr(0,8)=="/section"){
-    next({
-      path: '/',
-    });
-  }else{
-    next();
-  } 
-});
+
+// router.beforeEach((to, from, next) => {
+//   console.log(to.fullPath)
+//   if((to.fullPath).toString().substr(0,8)=="/section"){
+//     next({
+//       path: '/',
+//     });
+//   }else{
+//     next();
+//   } 
+// });
 
 export default router
