@@ -9,16 +9,12 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
-      path: '/',
-      redirect: 'MainPage'
-    },
-    {
       path: '/Enroll',
       name: 'Enroll',
       component: Enroll,
     },
     {
-      path: '/MainPage',
+      path: '/',
       name: 'MainPage',
       component: MainPage,
       children: [

@@ -266,6 +266,10 @@ var profile2 = {
     ]
 }
 
+app.get('/',function(req,res,next){
+    res.redirect("./dist/index.html#/?acmer="+req.query.acmer);
+})
+
 app.get('/Home',function(req,res,next){
     res.redirect("./Home.html");
 })

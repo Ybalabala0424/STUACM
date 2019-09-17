@@ -1,8 +1,13 @@
 # STUACM
 
 > A Vue.js project
-
-## 运行
+## 本地运行
+```bash
+# 已经通过npm run build，把生成的dist目录放在了server/public目录下，只运行服务器即可
+# 命令行cd到ACM-MISSIONS/server目录下
+node server.js
+```
+## 本地调试运行
 ``` bash
 # 安装配置好node环境
 # 命令行cd到ACM-MISSIONS目录下
@@ -124,6 +129,7 @@ CREATE TABLE `stuacm`.`codes` (
 4. 项目中的请求路径，数据库信息，express-session的密钥secret需要按环境修改
 5. 注意异步问题，尤其是数据库操作和爬虫
 6. node连接mysql失败，有可能是因为mysql版本过高，使用的密码加密方式不同
+7. npm run build前，先修改config/index.js文件中对应项为[assetsPublicPath: './'][productionSourceMap: false]
 ```
 
 ## 功能描述
