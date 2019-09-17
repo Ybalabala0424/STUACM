@@ -18,7 +18,6 @@
           <p ref="user_signature">...</p>
         </blockquote>
         <form>
-          <fieldset>
             <legend>个人相关</legend>
             <label class="col-sm-6 col-md-6 col-lg-6">codeforces：</label>
             <span ref="user_codeforces" class="col-sm-6 col-md-6 col-lg-6">...</span>
@@ -37,9 +36,7 @@
                 <a href="javascript:;">...</a>
               </li>
             </ul>
-          </fieldset>
         </form>
-        <setfield>
           <div class="accordion" id="show_mindmaps">
             <div class="accordion-group">
               <div class="accordion-heading">
@@ -63,7 +60,6 @@
               </div>
             </div>
           </div>
-        </setfield>
       </div>
     </div>
   </div>

@@ -1,7 +1,10 @@
 <template>
   <div v-if="hasAcmer" class="container" style="width: 100%">
     <eP ref="editP"></eP>
-    <div class="row" style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%">
+    <div
+      class="row"
+      style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%"
+    >
       <div class="col-sm-3 col-md-3 col-lg-2">
         <h3>STUACM</h3>
       </div>
@@ -32,8 +35,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3 col-md-2 col-lg-2" style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%">
-        <sPf></sPf>
+      <div
+        class="col-sm-3 col-md-2 col-lg-2"
+        style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%"
+      >
+        <sPf v-if="refreshsPf"></sPf>
       </div>
       <div class="col-sm-3 col-md-2 col-lg-10">
         <!-- <MsP></MsP> -->
@@ -55,7 +61,8 @@ export default {
   },
   data() {
     return {
-      hasAcmer: false
+      hasAcmer: false,
+      refreshsPf: true
     };
   },
   created() {
@@ -215,15 +222,12 @@ export default {
         }
       });
     },
-    tryLogout: function(){
+    tryLogout: function() {
       var json = {
         username: this.$store.getters.getUserName
-      }
+      };
       this.$http
-        .post(
-          this.$store.getters.getBaseUrl + "/logout",
-          JSON.stringify(json)
-        )
+        .post(this.$store.getters.getBaseUrl + "/logout", JSON.stringify(json))
         .then(res => {
           res = res.body;
           if (res.msg) {
@@ -239,6 +243,15 @@ export default {
             });
           }
         });
+    },
+    refreshSPF: function() {
+      // 移除组件
+      this.refreshsPf = false;
+      // 在组件移除后，重新渲染组件
+      // this.$nextTick可实现在DOM 状态更新后，执行传入的方法。
+      this.$nextTick(() => {
+        this.refreshsPf = true;
+      });
     }
   }
 };

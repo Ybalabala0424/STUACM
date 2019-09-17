@@ -60,10 +60,10 @@
                       </li>
                     </ul>
                   </div>
-                  <span class="help-block">修改任何信息都需要点击提交.</span>
-                  <button type="submit" class="btn" @click="UpgProfile">提交</button>
                 </fieldset>
               </form>
+              <span class="help-block">修改任何信息都需要点击提交.</span>
+              <button type="button" class="btn" @click="UpgProfile">提交</button>
             </div>
           </div>
         </div>
@@ -97,8 +97,8 @@ export default {
       var uploadInst = upload.render({
         elem: "#test1",
         url: this_vue.$store.getters.getBaseUrl + "/upgProfileImg",
-        xhrFields: {withCredentials: true},
-        data:{
+        xhrFields: { withCredentials: true },
+        data: {
           username: this_vue.$store.getters.getUserName
         },
         choose: function(obj) {
@@ -114,6 +114,7 @@ export default {
               icon: 1,
               time: 2000
             });
+            this_vue.$parent.refreshSPF();
           } else {
             layer.msg("Fail to upgrade profile!", {
               icon: 2,
@@ -182,6 +183,7 @@ export default {
               icon: 1,
               time: 2000
             });
+            this.$parent.refreshSPF();
           } else {
             layer.msg("Fail to upgrade profile!", {
               icon: 2,
