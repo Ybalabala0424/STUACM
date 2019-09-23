@@ -3,35 +3,25 @@
   <div id="viewMission_background" class="back">
     <div class="viewMission">
       <div id="viewMission_close">
-        <span id="viewMission_close-button">×</span>
+        <span id="viewMission_close-button" style="margin-top: auto">×</span>
         <h2>详细内容</h2>
       </div>
-      <div style="height:625px">
+      <div style="height:625px;margin-top: 2%">
         <div class="container-fluid">
           <div class="row-fluid">
             <div class="span12">
-              <span class="label badge-important" ref="am_belong">文字标签</span>
+              <span class="label badge-important" ref="am_belong" style="color: #009f95;font-size: 24px">文字标签</span>
               <div class="page-header">
                 <h1 ref="am_title">页标题范例</h1>
               </div>
-              <form>
+              <form style="margin:-2% 0 2% 0">
                 <fieldset>
-                  <label class="col-sm-2 col-md-2 col-lg-2">开始时间</label>
-                  <input
-                    class="col-sm-3 col-md-3 col-lg-3"
-                    type="text"
-                    ref="am_start_t"
-                    value="2019-09-08 00:00:00"
-                  />
-                  <label class="col-sm-2 col-md-2 col-lg-2">~</label>
-                  <label class="col-sm-2 col-md-2 col-lg-2">结束时间</label>
-                  <input
-                    class="col-sm-3 col-md-3 col-lg-3"
-                    type="text"
-                    ref="am_end_t"
-                    value="2019-09-15 00:00:00"
-                  />
-                  <span class="help-block">请在规定时间内完成任务哦!</span>
+                  <label style="font-size: large;display: inline;margin-right: 1%" >开始时间  </label>
+                  <p type="text" ref="am_start_t" style="font-size: large;display: inline">2019-09-08 00:00:00  </p>
+                  <label  style="font-size: larger;margin:0 1% 0 1%;display: inline">—</label>
+                  <label style="font-size: large;display: inline;margin-right: 1%">结束时间</label>
+                  <p type="text" ref="am_end_t" style="margin-top: 4px;font-size: large;display: inline">2019-09-15 00:00:00</p>
+<!--                  <div class="help-block" style="display: block">请在规定时间内完成任务哦!</div>-->
                 </fieldset>
               </form>
               <div class="accordion" id="accordion-120870">
@@ -43,7 +33,7 @@
                       data-parent="#accordion-120870"
                       href="#accordion-element-627540"
                     >
-                      <h3>任务简介</h3>
+                      <h3 style="width: 20%;margin: auto;margin-bottom: 2%">任务简介</h3>
                     </a>
                   </div>
                   <div id="accordion-element-627540" class="accordion-body in collapse">
@@ -62,7 +52,7 @@
                       data-parent="#accordion-120874"
                       href="#accordion-element-627545"
                     >
-                      <h3>阅读材料</h3>
+                      <h3 style="width: 20%;margin: auto;margin-bottom: 2%">阅读材料</h3>
                     </a>
                   </div>
                   <div id="accordion-element-627545" class="accordion-body in collapse">
@@ -79,17 +69,17 @@
                       data-parent="#accordion-120874"
                       href="#accordion-element-962876"
                     >
-                      <h3>实战例题</h3>
+                      <h3 style="width: 20%;margin: auto">实战例题</h3>
                     </a>
                   </div>
                   <div id="accordion-element-962876" class="accordion-body collapse">
-                    <div class="accordion-inner">
+                    <div class="accordion-inner" style="padding: 1% 10% 2% 10%">
                       <table class="table">
-                        <thead>
-                          <tr>
-                            <th>题目</th>
-                            <th>截止状态</th>
-                            <th>当前状态</th>
+                        <thead style="margin: auto">
+                          <tr style="margin-bottom: 2%">
+                            <th style="text-align: center">题目</th>
+                            <th style="text-align: center">截止状态</th>
+                            <th style="text-align: center">当前状态</th>
                           </tr>
                         </thead>
                         <tbody ref="problem_urls">
@@ -135,8 +125,8 @@ export default {
       $(belong_ul).append(nli);
     },
     getStatusBGC(status){
-      if(status=="Accepted") return "aquamarine";
-      if(status=="NotAccepted") return "#ff6a6a";
+      if(status=="Accepted") return "#009f95";
+      if(status=="NotAccepted") return "indianred";
     },
     addapro: function(name, url, belong_tbody, status0, status1) {
       status0 = (status0=="Accepted"?"Accepted":"NotAccepted");
@@ -144,21 +134,23 @@ export default {
       let ntr_str =
         '\
       <tr>\
-        <td><a href="' +
+        <td style="font-size:large;padding-top: 1%"><a href="' +
         url +
         '">' +
         name +
         "</a></td>\
-        <td>" +
+        <td style='font-size:large'>" +
         status0 +
         "</td>\
-        <td>" +
+        <td style='font-size:large'>" +
         status1 +
         "</td>\
       </tr>";
       let ntr = $(ntr_str);
-      $(ntr.children("td")[1]).css("background-color",this.getStatusBGC(status0));
-      $(ntr.children("td")[2]).css("background-color",this.getStatusBGC(status1));
+      $(ntr.children("td")[1]).css("color",this.getStatusBGC(status0));
+      $(ntr.children("td")[1]).css("padding-top","1%");
+      $(ntr.children("td")[2]).css("color",this.getStatusBGC(status1));
+      $(ntr.children("td")[2]).css("padding-top","1%");
       $(belong_tbody).append(ntr);
     },
     fillMissionDetail: function(title, start_t, end_t, belong, detail) {
@@ -216,7 +208,7 @@ export default {
 
 #viewMission_close {
   padding: 5px;
-  background: #ff6a6a;
+  background: #a5bbcc;
 }
 
 #viewMission_close-button {
@@ -231,10 +223,10 @@ export default {
   color: white;
 } */
 .Accepted{
-  background-color: aquamarine
+  color: #009f95;
 }
 
 .NotAccepted{
-  background-color: #ff6a6a
+  color:indianred;
 }
 </style>

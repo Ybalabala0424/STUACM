@@ -1,12 +1,12 @@
 <template>
   <div id="middle_block">
-    <label v-if="this.$store.getters.getIsLogin" @click="upgMindMap">✓</label>
+    <label v-if="this.$store.getters.getIsLogin" @click="upgMindMap"><i class="layui-icon layui-icon-ok" style="font-size: large;margin: 5%"></i></label>
     <vD ref="viewD"></vD>
-    <div id="mindmap_block" style="width:100%;height:96.5%;background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%">
+    <div id="mindmap_block" style="width:100%;height:120%;background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%">
       <div
         ref="mindmap"
         class="hTree bar"
-        style="overflow: scroll"
+        style="overflow: scroll;height: 120%"
       ></div>
     </div>
   </div>
@@ -53,11 +53,11 @@ export default {
         area: ["450px", "auto"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<div class="layui-col-md7">' +
           '<div class="input-group">' +
-          '<span class="input-group-addon">简介：</span>' +
-          "<p>" +
+          '<span class="input-group-addon" style="font-size: large;margin: 2%">简介：</span>' +
+          "<p style='font-size:medium;margin: 2%'>" +
           this_vue.$route.query.brief +
           "</p>" +
           "</div>" +

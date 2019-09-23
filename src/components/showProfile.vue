@@ -3,8 +3,8 @@
     <nMM ref="newaMM"></nMM>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12">
-        <button class="btn btn-block btn-large" type="button">
-          <router-link to="MissionsPage">Missions</router-link>
+        <button class="btn btn-block btn-large" type="button" style="margin-bottom: 3%">
+          <router-link to="MissionsPage" style="font-size: large;margin-bottom: 5%">Missions</router-link>
         </button>
         <img
           ref="user_img"
@@ -19,23 +19,32 @@
         </blockquote>
         <form>
             <legend>个人相关</legend>
-            <label class="col-sm-6 col-md-6 col-lg-6">codeforces：</label>
-            <span ref="user_codeforces" class="col-sm-6 col-md-6 col-lg-6">...</span>
-            <label class="col-sm-6 col-md-6 col-lg-6">sdutacm：</label>
-            <span ref="user_sdutacm" class="col-sm-6 col-md-6 col-lg-6">...</span>
-            <label class="col-sm-12 col-md-12 col-lg-12">个人博客：</label>
-            <div class="col-sm-4 col-md-4 col-lg-4"></div>
-            <ul ref="user_blogs" class="col-sm-8 col-md-8 col-lg-8">
-              <li>
-                <a href="javascript:;">...</a>
-              </li>
-              <li>
-                <a href="javascript:;">...</a>
-              </li>
-              <li>
-                <a href="javascript:;">...</a>
-              </li>
-            </ul>
+            <div class="row">
+              <div class="media">
+                <div>
+                  <h4 class="media-heading" style="margin-bottom:5%"><i class="layui-icon layui-icon-face-smile" style="font-size: 22px; color: #4692cf;"></i>  codeforces：  <span ref="user_codeforces"></span></h4>
+                  <h4 class="media-heading" style="margin-bottom:5%"><i class="layui-icon layui-icon-console" style="font-size: 22px; color: #4692cf;"></i>  sdutacm：  <span ref="user_sdutacm"></span></h4>
+                  <h4 class="media-heading" style="margin-bottom:3%">
+                    <div class="layui-row">
+                      <div class="layui-col-xs7 layui-col-sm7 layui-col-md7" style="padding-left: 15%"><i class="layui-icon layui-icon-release" style="font-size: 22px; color: #4692cf;"></i>  个人博客：</div>
+                      <div class="layui-col-xs1 layui-col-sm1 layui-col-md1">
+                        <ul ref="user_blogs" style="display: inline-block">
+                          <li>
+                            <a href="javascript:;" style="display: block;margin: auto;font-size: larger;padding-bottom: 3%">...</a>
+                          </li>
+                          <li>
+                            <a href="javascript:;" style="display: block;margin: auto;font-size: larger;padding-bottom: 3%">...</a>
+                          </li>
+                          <li>
+                            <a href="javascript:;" style="display: block;margin: auto;font-size: larger;padding-bottom: 3%">...</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </h4>
+                </div>
+              </div>
+            </div>
         </form>
           <div class="accordion" id="show_mindmaps">
             <div class="accordion-group">
@@ -46,7 +55,8 @@
                     data-toggle="collapse"
                     data-parent="#show_mindmaps"
                     href="#mindmaps_box"
-                  >Mind-maps</a>
+                    style="color: #33395f"
+                  >Mind-maps <i id="iconMind" class="layui-icon layui-icon-template-1"></i></a>
                   <label v-if="this.$store.getters.getIsLogin" @click="newaMindMap">+</label>
                   <!-- <label @click="test">test</label> -->
                 </legend>
@@ -66,6 +76,7 @@
 </template>
 
 <script>
+let iconMind = document.getElementById("iconMind");
 import aMM from "./aMindMap";
 import nMM from "./newMindMap";
 export default {

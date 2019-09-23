@@ -1,11 +1,12 @@
 <template>
-  <li class="row" v-if="!isDeled">
-    <a @click="routerTo" href="#" class="col-sm-9 col-md-9 col-lg-9">{{info.name}}</a>
+  <li class="layui-row" v-if="!isDeled">
+    <a class="layui-col-md9" @click="routerTo" href="#" style="font-size: large;margin: 2%;display: inline">{{info.name}}</a>
     <label
-      class="col-sm-2 col-md-2 col-lg-2"
+      class="layui-col-md2 layui-col-md-offset8"
       v-if="this.$store.getters.getIsLogin"
       @click="delmindmap"
-    >-</label>
+      style="margin-top: -10%"
+    ><i class="layui-icon layui-icon-delete"></i></label>
 
   </li>
 </template>

@@ -2,55 +2,55 @@
   <!-- 编辑新任务 弹窗内容开始 -->
   <div id="newMission_background" class="back">
     <div class="newMission">
-      <div id="newMission_close">
-        <span id="newMission_close-button">×</span>
-        <h2>详细内容</h2>
+      <div id="newMission_close" style="margin-bottom: 2%">
+        <span id="newMission_close-button" style="margin-top: auto">×</span>
+        <h2 style="padding: 0.5%">详细内容</h2>
       </div>
-      <div style="height:625px">
+      <div style="height:535px;margin-top: 5%">
         <div class="container">
           <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <form>
-                <div class="row">
-                  <label class="col-sm-6 col-md-6 col-lg-6">任务名称</label>
-                  <input ref="nam_name" class="col-sm-6 col-md-6 col-lg-6" type="text" />
-                </div>
-                <div class="row">
-                  <label class="col-sm-6 col-md-6 col-lg-6">任务简介</label>
-                  <textarea ref="nam_brief" class="col-sm-6 col-md-6 col-lg-6"></textarea>
-                </div>
-
-                <div class="layui-form">
-                  <div class="layui-form-item">
-                    <div class="layui-inline">
-                      <div class="layui-inline">
-                        <label class="layui-form-label">日期时间范围</label>
-                        <div class="layui-input-inline">
-                          <input type="text" class="layui-input" id="test10" placeholder=" - " />
-                        </div>
-                      </div>
-                    </div>
+            <div>
+              <form class="layui-form" style="margin-left: 30%;width:43%">
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger">任务名称</label>
+                  <div class="layui-input-block">
+                    <input ref="nam_name" lay-verify="required" required class="layui-input" type="text" style="border-radius: 10px"/>
                   </div>
                 </div>
-                <div>
-                  <div class="row">
-                    <h3 class="col-sm-10 col-md-10 col-lg-10">阅读材料</h3>
-                    <label class="col-sm-1 col-md-1 col-lg-1" @click="material_newupload">⇧</label>
-                    <label class="col-sm-1 col-md-1 col-lg-1" @click="material_newurl">+</label>
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger">任务简介</label>
+                  <div class="layui-input-block">
+                    <textarea ref="nam_brief" class="layui-textarea" style="border-radius: 10px"></textarea>
                   </div>
-                  <ul ref="material_urls"></ul>
                 </div>
-                <div>
-                  <div class="row">
-                    <h3 class="col-sm-10 col-md-10 col-lg-10">实战例题</h3>
-                    <label class="col-sm-1 col-md-1 col-lg-1"></label>
-                    <label class="col-sm-1 col-md-1 col-lg-1" @click="problem_newurl">+</label>
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger">日期时间</label>
+                  <div class="layui-inline" style="width: 73%">
+                    <input type="text" class="layui-input" id="test10" style="border-radius: 10px" placeholder=" - " />
                   </div>
-                  <ul ref="problem_urls"></ul>
                 </div>
-                <span class="help-block">修改任何信息都需要点击提交.</span>
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger">阅读材料</label>
+                  <span><label @click="material_newupload"><i class="layui-icon layui-icon-upload-drag" style="font-size: 40px;margin-left: -27%"></i></label></span>
+                  <span><label @click="material_newurl"><i class="layui-icon layui-icon-link" style="font-size: 33px;margin-left: -7%"></i></label></span>
+                  <ul ref="material_urls" style="margin-left: 50%;margin-top:-8%;font-size: large" >
+                    <li>
+                      <a href="https://www.baidu.com">百度</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger">实战例题</label>
+                  <span><label @click="problem_newurl"><i class="layui-icon layui-icon-link" style="font-size: 33px;margin-left: -27%"></i></label></span>
+                  <ul ref="problem_urls" style="margin-left: 17%;margin-top:-7%;font-size: large">
+                    <li>
+                      <a href="https://www.baidu.com">百度</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="help-block" style="color: dimgray;margin: 5%">修改任何信息都需要点击提交噢~</div>
               </form>
-              <button type="submit" class="btn" @click="newaMission">提交</button>
+              <button type="submit" class="layui-btn" @click="newaMission" style="font-size: large">提交</button>
             </div>
           </div>
         </div>
@@ -143,17 +143,21 @@ export default {
         area: ["450px", "auto"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">材料命名：</span>' +
-          '<input id="m_new_material_name" class="form-control" placeholder="请输入材料名">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<form class="layui-form" style="padding-left: 5%">' +
+          '<div class="layui-form-item" style="margin: 5%">' +
+          '<span class="layui-form-label" style="margin-top: 3%">材料命名：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_name" class="layui-input" style="border-radius: 10px;margin-top: 5%" placeholder="请输入材料名">' +
+          '</div>' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label" style="margin-top: 3%">上传材料：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_file" class="layui-input" style="border-radius: 10px;margin-top: 5%;width: 135%" type="file">' +
+          '</div>' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">点击上传材料：</span>' +
-          '<input id="m_new_material_file" class="form-control" type="file">' +
-          "</div>" +
-          "</div>" +
+          '</div>' +
+          "</form>" +
           "</div>",
         btn: ["添加", "取消"],
         btn1: function(index, layero) {
@@ -215,17 +219,21 @@ export default {
         area: ["450px", "auto"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">材料命名：</span>' +
-          '<input id="m_new_material_name" class="form-control" placeholder="请输入材料名">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<form class="layui-form" style="padding-left: 12%">' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">材料命名：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_name" class="layui-input" style="border-radius: 10px" placeholder="请输入材料名">' +
+          '</div>' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">材料地址：</span>' +
-          '<input id="m_new_material_url" class="form-control" placeholder="请输入材料地址">' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">材料地址：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_url" class="layui-input" style="border-radius: 10px" placeholder="请输入材料地址">' +
+          '</div>' +
           "</div>" +
-          "</div>" +
+          "</form>" +
           "</div>",
         btn: ["添加", "取消"],
         btn1: function(index, layero) {
@@ -248,20 +256,23 @@ export default {
         type: 1,
         title: "添加实战例题",
         skin: "layui-layer-rim",
-        area: ["450px", "auto"],
+        area: ["450px", "275px"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">例题命名：</span>' +
-          '<input id="m_new_problem_name" class="form-control" placeholder="请输入例题名">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:7px;margin-top:10px;">' +
+          '<form class="layui-form" style="padding-left: 12%">' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">例题命名：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_problem_name" class="layui-input" style="border-radius: 10px" placeholder="请输入例题名">' +
+          '</div>' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">例题地址：</span>' +
-          '<input id="m_new_problem_url" class="form-control" placeholder="请输入材料地址">' +
-          "</div>" +
-          "</div>" +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">例题地址：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_problem_url" class="layui-input" style="border-radius: 10px" placeholder="请输入材料地址">' +
+          '</div>' +
+          "</form>" +
           "</div>",
         btn: ["添加", "取消"],
         btn1: function(index, layero) {
@@ -325,7 +336,7 @@ ul li {
 #newMission_background {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
-  text-align: 1.5;
+  text-align: center;
   z-index: 1000;
   display: none;
   position: fixed;
@@ -345,7 +356,7 @@ ul li {
 
 #newMission_close {
   padding: 5px;
-  background: #ff6a6a;
+  background: #a5bbcc;
 }
 
 #newMission_close-button {

@@ -8,29 +8,30 @@
       <div class="col-sm-3 col-md-3 col-lg-2">
         <h3>STUACM</h3>
       </div>
-      <div class="col-sm-3 col-md-7 col-lg-8">
+      <div class="col-sm-7 col-md-7 col-lg-8">
         <h3></h3>
       </div>
-      <div class="col-sm-3 col-md-2 col-lg-2">
+      <div class="col-sm-2 col-md-2 col-lg-2">
         <div class="btn-group" style="float: right;margin-right:25%">
-          <button class="btn">Action</button>
-          <button data-toggle="dropdown" class="btn dropdown-toggle">
-            <span class="caret"></span>
+          <button class="btn"><i class="layui-icon layui-icon-username" style="font-size: 30px; color: #1E9FFF;"></i>Action
+            <button data-toggle="dropdown" class="btn dropdown-toggle">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="margin: auto">
+              <li>
+                <a v-if="this.$store.getters.getIsLogin" href="#" @click="editProfile">个人信息</a>
+              </li>
+              <li>
+                <a v-if="this.$store.getters.getIsLogin" href="#" @click="changePassword">账号信息</a>
+              </li>
+              <li>
+                <a v-if="this.$store.getters.getIsLogin" href="#" @click="tryLogout">Log out</a>
+              </li>
+              <li>
+                <a v-if="!this.$store.getters.getIsLogin" href="#" @click="tryLogin">Log in</a>
+              </li>
+            </ul>
           </button>
-          <ul class="dropdown-menu">
-            <li>
-              <a v-if="this.$store.getters.getIsLogin" href="#" @click="editProfile">个人信息</a>
-            </li>
-            <li>
-              <a v-if="this.$store.getters.getIsLogin" href="#" @click="changePassword">账号信息</a>
-            </li>
-            <li>
-              <a v-if="this.$store.getters.getIsLogin" href="#" @click="tryLogout">Log out</a>
-            </li>
-            <li>
-              <a v-if="!this.$store.getters.getIsLogin" href="#" @click="tryLogin">Log in</a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
@@ -117,15 +118,15 @@ export default {
         area: ["450px", "auto"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">邮箱：</span>' +
-          '<input id="login_email" class="form-control" placeholder="请输入注册邮箱">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:4px; margin-top:10px;">' +
+          '<div class="layui-card-body">' +
+          '<label class="layui-form-label" style="font-size: medium;margin-top: 3%">邮箱：</label>' +
+          "<div class='layui-input-block'style='margin-top:3%'  >" +
+          '<input id="login_email" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入注册邮箱">' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">密码：</span>' +
-          '<input id="login_password" class="form-control" placeholder="请输入该页面用户的密码">' +
+          '<label class="layui-form-label" style="font-size: medium;margin-top: 3%">密码：</label>' +
+          "<div class='layui-input-block' style='margin-top:3% ' >" +
+          '<input id="login_password" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入该页面用户的密码">' +
           "</div>" +
           "</div>" +
           "</div>",
@@ -170,23 +171,22 @@ export default {
         type: 1,
         title: "修改密码",
         skin: "layui-layer-rim",
-        area: ["450px", "auto"],
+        area: ["450px", "34%"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">原密码：</span>' +
-          '<input id="cpw_oldpw" class="form-control" placeholder="请输入现在在用的密码">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:3.5px; margin-top:15px;">' +
+          '<div class="layui-card-body">' +
+          '<label class="layui-form-label" style="font-size: medium">原密码：</label>' +
+          "<div class='layui-input-block'>" +
+          '<input id="enroll_password0" type="password" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入现在在用的密码">' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">新密码：</span>' +
-          '<input id="cpw_newpw0" class="form-control" placeholder="请输入更换后的密码">' +
+          '<label class="layui-form-label" style="font-size: medium">新密码：</label>' +
+          "<div class='layui-input-block'>" +
+          '<input id="enroll_password1" type="password" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入更换后的密码">' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">新密码：</span>' +
-          '<input id="cpw_newpw1" class="form-control" placeholder="请再次输入新密码">' +
-          "</div>" +
+          '<label class="layui-form-label" style="font-size: medium">新密码：</label>' +
+          "<div class='layui-input-block'>" +
+          '<input id="enroll_password1" type="password" class="layui-input layui-form-danger" lay-verify="required" placeholder="请再次输入新密码">' +
           "</div>" +
           "</div>",
         btn: ["修改", "取消"],

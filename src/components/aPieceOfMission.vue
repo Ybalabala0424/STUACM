@@ -1,10 +1,10 @@
 <template>
   <tr v-if="!isDeled" class="row" @click="viewthisMission" ref="atr">
-    <td class="col-sm-3 col-md-3 col-lg-3">{{info.title}}</td>
-    <td class="col-sm-3 col-md-3 col-lg-3">{{info.start_t}}</td>
-    <td class="col-sm-3 col-md-3 col-lg-3">{{info.end_t}}</td>
-    <td class="col-sm-2 col-md-2 col-lg-2">{{info.belong}}</td>
-    <td class="col-sm-1 col-md-1 col-lg-1">
+    <td class="col-sm-3 col-md-3 col-lg-3" style="font-size: large">{{info.title}}</td>
+    <td class="col-sm-3 col-md-3 col-lg-3" style="font-size: large">{{info.start_t}}</td>
+    <td class="col-sm-3 col-md-3 col-lg-3" style="font-size: large">{{info.end_t}}</td>
+    <td class="col-sm-2 col-md-2 col-lg-2" style="font-size: large">{{info.belong}}</td>
+    <td class="col-sm-1 col-md-1 col-lg-1" style="font-size: large">
       <label v-if="this.$store.getters.getIsLogin&&info.belong=='Personal'" @click="delmission">-</label>
     </td>
   </tr>
@@ -64,6 +64,6 @@ export default {
   background-color: red;
 }
 .finished {
-  background-color: aquamarine;
+  background-color: white;
 }
 </style>

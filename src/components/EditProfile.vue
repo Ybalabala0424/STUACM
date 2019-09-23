@@ -1,15 +1,15 @@
 <template>
   <!-- 编辑个人信息 弹窗内容开始 -->
-  <div id="editProfile_background" class="back">
-    <div class="editProfile">
+  <div id="editProfile_background" class="back" style="width: 100%">
+    <div class="editProfile" style="width: 62%">
       <div id="editProfile_close">
         <span id="editProfile_close-button">×</span>
-        <h2>详细内容</h2>
+        <h2>个人信息</h2>
       </div>
-      <div style="height:625px">
+      <div style="height:725px">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="layui-row">
+            <div>
               <div class="layui-upload">
                 <div class="layui-upload-list">
                   <img
@@ -20,51 +20,73 @@
                     class="img-circle layui-upload-img"
                     style="height: 140px;width:140px"
                   />
-                  <p id="demoText"></p>
                 </div>
               </div>
-              <span class="help-block">点击头像以更换头像.</span>
-              <form>
-                <div class="row">
-                  <label class="col-sm-6 col-md-6 col-lg-6">个性签名</label>
-                  <textarea ref="eP_user_signature" class="col-sm-6 col-md-6 col-lg-6"></textarea>
+              <div style="margin: 1%">点击头像以更换头像</div>
+              <form class="layui-form layui-col-md6 layui-col-lg-offset3">
+                <div class="layui-form-item layui-form-text">
+                  <label class="layui-form-label" style="width: 18%">个性签名</label>
+                  <div class="layui-input-block" style="width: 60%">
+                    <textarea ref="eP_user_signature" class="layui-textarea" style="border-radius: 10px"></textarea>
+                  </div>
                 </div>
-                <fieldset>
-                  <legend>个人相关</legend>
-                  <div class="row">
-                    <label class="col-sm-6 col-md-6 col-lg-6">昵称</label>
-                    <input ref="eP_user_nickname" class="col-sm-6 col-md-6 col-lg-6" type="text" />
+                <div class="layui-form-item">
+                  <label class="layui-form-label" style="margin-left: 3%">昵称</label>
+                  <div class="layui-input-block">
+                    <input type="text" ref="eP_user_nickname" style="width: 75%;border-radius: 10px" required  lay-verify="required" autocomplete="off" class="layui-input">
                   </div>
-                  <div class="row">
-                    <label class="col-sm-6 col-md-6 col-lg-6">codeforces 用户名</label>
-                    <input ref="eP_user_codeforces" class="col-sm-6 col-md-6 col-lg-6" type="text" />
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label" style="width: 35%;margin-left: -17%">codeforces 用户名</label>
+                  <div class="layui-input-block">
+                    <input type="text" ref="eP_user_codeforces" style="border-radius: 10px;width:75%;" required  lay-verify="required" autocomplete="off" class="layui-input">
                   </div>
-                  <div class="row">
-                    <label class="col-sm-6 col-md-6 col-lg-6">sdutacm 用户名</label>
-                    <input ref="eP_user_sdutacm" class="col-sm-6 col-md-6 col-lg-6" type="text" />
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label" style="width: 35%;margin-left: -17%">sdutacm 用户名</label>
+                  <div class="layui-input-block">
+                    <input type="text" ref="eP_user_sdutacm" required style="border-radius: 10px;width: 75%" lay-verify="required" autocomplete="off" class="layui-input">
                   </div>
-                  <div class="row">
-                    <label class="col-sm-6 col-md-6 col-lg-6">个人博客</label>
-                    <ul ref="eP_user_blogs" class="col-sm-6 col-md-6 col-lg-6" style="padding: 0">
-                      <li>
-                        <input class="col-sm-6 col-md-6 col-lg-6" type="text" />
-                        <input class="col-sm-6 col-md-6 col-lg-6" type="text" />
-                      </li>
-                      <li>
-                        <input class="col-sm-6 col-md-6 col-lg-6" type="text" />
-                        <input class="col-sm-6 col-md-6 col-lg-6" type="text" />
-                      </li>
-                      <li>
-                        <input class="col-sm-6 col-md-6 col-lg-6" type="text" />
-                        <input class="col-sm-6 col-md-6 col-lg-6" type="text" />
-                      </li>
-                    </ul>
+                </div>
+                <div class="layui-form-item" ref="eP_user_blogs">
+                  <label class="layui-form-label" style="width: 18%">个人博客</label>
+                  <div class="layui-unselect layui-form-select layui-col-md4 layui-col-space18">
+                    <div class="layui-select-tips">
+                      <input class="layui-input layui-unselect" type="text" placeholder="请填写博客网站" style="margin-left: 3%;border-radius: 10px">
+                    </div>
                   </div>
-                </fieldset>
+                  <div class="layui-unselect layui-form-select layui-col-md5" style="margin-left: 1%">
+                    <div class="layui-select-tips">
+                      <input class="layui-input layui-unselect" type="text" placeholder="请填写相应网址" style="margin-left: 3%;border-radius: 10px">
+                    </div>
+                  </div>
+                  <div class="layui-unselect layui-form-select layui-col-md4 layui-col-space18" style="padding-top: 1%">
+                    <div class="layui-select-tips">
+                      <input class="layui-input layui-unselect" type="text" placeholder="请填写博客网站" style="margin-left: 3%;border-radius: 10px">
+                    </div>
+                  </div>
+                  <div class="layui-unselect layui-form-select layui-col-md5" style="margin-left: 1%;padding-top: 1%">
+                    <div class="layui-select-tips">
+                      <input class="layui-input layui-unselect" type="text" placeholder="请填写相应网址" style="margin-left: 3%;border-radius: 10px">
+                    </div>
+                  </div>
+                  <div class="layui-unselect layui-form-select layui-col-md4 layui-col-space18" style="padding-top: 1%;margin-left: 16.5%">
+                    <div class="layui-select-tips">
+                      <input class="layui-input layui-unselect" type="text" placeholder="请填写博客网站" style="margin-left: 3%;border-radius: 10px">
+                    </div>
+                  </div>
+                  <div class="layui-unselect layui-form-select layui-col-md5" style="margin-left: 1%;padding-top: 1%">
+                    <div class="layui-select-tips">
+                      <input class="layui-input layui-unselect" type="text" placeholder="请填写相应网址" style="margin-left: 3%;border-radius: 10px">
+                    </div>
+                  </div>
+                </div>
               </form>
-              <span class="help-block">修改任何信息都需要点击提交.</span>
-              <button type="button" class="btn" @click="UpgProfile">提交</button>
             </div>
+          </div>
+          <div class="layui-row">
+            <div class="help-block">修改任何信息都需要点击提交</div>
+            <button type="button" class="layui-btn" @click="UpgProfile" style="font-size: large">提交</button>
           </div>
         </div>
       </div>
@@ -204,7 +226,7 @@ ul li {
 #editProfile_background {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
-  text-align: 1.5;
+  text-align: center;
   z-index: 1000;
   display: none;
   position: fixed;
@@ -218,13 +240,13 @@ ul li {
 .editProfile {
   background: #eeeeee;
   width: 56%;
-  margin: 4% auto;
+  margin: 2.5% auto;
   overflow: auto;
 }
 
 #editProfile_close {
   padding: 5px;
-  background: #ff6a6a;
+  background: lightcoral;
 }
 
 #editProfile_close-button {

@@ -1,51 +1,54 @@
 <template>
-<div>
-</div>
+  <div></div>
 </template>
 
 <script>
 export default {
-    mounted(){
-      var this_vue = this;
+  mounted() {
+    $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+    let this_vue = this;
+    layui.use(["form", "layedit", "laydate"], function() {
+      let layer = layui.layer
       layer.open({
         id: 1,
         type: 1,
+        closeBtn: 0,
+        anim: 0,
+        scrollbar:false,
         title: "注册-激活",
         skin: "layui-layer-rim",
-        area: ["450px", "auto"],
+        area: ["28%", "45%"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">用户名：</span>' +
-          '<input id="enroll_username" class="form-control" placeholder="请输入唯一用户名">' +
-          "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">邮箱：</span>' +
-          '<input id="enroll_email" class="form-control" placeholder="请输入注册邮箱">' +
-          "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">密码：</span>' +
-          '<input id="enroll_password0" class="form-control" placeholder="请输入自定义密码">' +
-          "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">密码：</span>' +
-          '<input id="enroll_password1" class="form-control" placeholder="请再次输入自定义密码">' +
-          "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">激活码：</span>' +
-          '<input id="enroll_code" class="form-control" placeholder="请输入激活码">' +
-          "</div>" +
-          "</div>" +
-          "</div>",
+          '<div class="layui-row layui-col-space6" style="margin:auto; margin-top: 5%">' +
+            '<div class="layui-card-body">' +
+            '<label class="layui-form-label" style="font-size: medium">用户名：</label>' +
+            "<div class='layui-input-block'>" +
+            '<input id="enroll_username" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入唯一用户名">' +
+            "</div>" +
+            '<label class="layui-form-label" style="font-size: medium">邮箱：</label>' +
+            "<div class='layui-input-block'>" +
+            '<input id="enroll_email" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入注册邮箱">' +
+            "</div>" +
+            '<label class="layui-form-label" style="font-size: medium">密码：</label>' +
+            "<div class='layui-input-block'>" +
+            '<input id="enroll_password0" type="password" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入自定义密码">' +
+            "</div>" +
+            '<label class="layui-form-label" style="font-size: medium">密码：</label>' +
+            "<div class='layui-input-block'>" +
+            '<input id="enroll_password1" type="password" class="layui-input layui-form-danger" lay-verify="required" placeholder="请再次输入自定义密码">' +
+            "</div>" +
+            '<label class="layui-form-label" style="font-size: medium">激活码：</label>' +
+            "<div class='layui-input-block'>" +
+            '<input id="enroll_code" class="layui-input layui-form-danger" lay-verify="required" placeholder="请输入激活码">' +
+            "</div>",
         btn: ["注册"],
-        btn1: function(index, layero) {
-          var json = {
+        btn1: function(index) {
+          let json = {
             username: $("#enroll_username").val(),
             email: $("#enroll_email").val(),
             password: $("#enroll_password0").val(),
-            code: $('#enroll_code').val()
+            code: $("#enroll_code").val()
           };
           this_vue.$http
             .post(
@@ -69,10 +72,10 @@ export default {
             });
         }
       });
-    }
-}
+    });
+  }
+};
 </script>
 
 <style scoped>
-
 </style>

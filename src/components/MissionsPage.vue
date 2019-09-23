@@ -3,9 +3,9 @@
     <nM ref="newaM"></nM>
     <aM ref="viewaM"></aM>
     <div class="row">
-      <label @click="newaMission" v-if="this.$store.getters.getIsLogin">+</label>
-    </div>
-    <div class="row">
+      <label @click="newaMission" v-if="this.$store.getters.getIsLogin" style="float: right">
+        <i class="layui-icon layui-icon-add-circle-fine" style="font-size: 40px;margin-right: -300px"></i>
+      </label>
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="accordion" id="asms_box" v-if="refreshMs">
           <asms v-for="(info,index) in infos" :key="index" :info="info"></asms>

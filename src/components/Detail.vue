@@ -8,41 +8,40 @@
       </div>
       <div style="height:625px">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="layui-row">
+            <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
               <form>
                 <div>
-                  <div class="row">
-                    <h3 class="col-sm-10 col-md-10 col-lg-10">阅读材料</h3>
+                  <div class="layui-row" style="margin-top: 5%">
+                    <h3 class="layui-col-sm8 layui-col-md8 layui-col-lg8">阅读材料</h3>
                     <label
                       v-if="this.$store.getters.getIsLogin"
-                      class="col-sm-1 col-md-1 col-lg-1"
+                      class="layui-col-sm2 layui-col-md2 layui-col-lg2"
                       @click="material_newupload"
-                    >⇧</label>
+                    ><i class="layui-icon layui-icon-upload-drag" style="font-size: 40px;margin-left: -200%"></i></label>
                     <label
                       v-if="this.$store.getters.getIsLogin"
-                      class="col-sm-1 col-md-1 col-lg-1"
+                      class="layui-col-sm2 layui-col-md2 layui-col-lg2"
                       @click="material_newurl"
-                    >+</label>
+                    ><i class="layui-icon layui-icon-link" style="font-size: 33px;margin-left: -200%"></i></label>
                   </div>
-                  <ul ref="material_urls">
-                    <li class="row">
+                  <ul ref="material_urls" style="margin-left: 20%;margin-top:1.5%;font-size: large" >
+                    <li class="row" style="padding-top: 3.5%;font-size: large">
                       <a href="https://www.baidu.com">百度</a>
                     </li>
                   </ul>
                 </div>
-                <div>
-                  <div class="row">
-                    <h3 class="col-sm-10 col-md-10 col-lg-10">实战例题</h3>
-                    <label class="col-sm-1 col-md-1 col-lg-1"></label>
+                <div style="margin-top: 5%">
+                  <div class="layui-row" style="margin-left: -14%">
+                    <h3 class="layui-col-sm10 layui-col-md10 layui-col-lg10">实战例题</h3>
                     <label
                       v-if="this.$store.getters.getIsLogin"
-                      class="col-sm-1 col-md-1 col-lg-1"
+                      class="layui-col-sm2 layui-col-md2 layui-col-lg2"
                       @click="problem_newurl"
-                    >+</label>
+                    ><i class="layui-icon layui-icon-link" style="font-size: 33px;margin-left: -340%"></i></label>
                   </div>
-                  <ul ref="problem_urls">
-                    <li class="row">
+                  <ul ref="problem_urls" style="margin-left: 20%;margin-top:1.5%;font-size: large">
+                    <li style="padding-top: 3.5%;font-size: large">
                       <a href="https://www.baidu.com">百度</a>
                     </li>
                   </ul>
@@ -172,17 +171,21 @@ export default {
         area: ["450px", "auto"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">材料命名：</span>' +
-          '<input id="d_new_material_name" class="form-control" placeholder="请输入材料名">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<form class="layui-form" style="padding-left: 5%">' +
+          '<div class="layui-form-item" style="margin: 5%">' +
+          '<span class="layui-form-label" style="margin-top: 3%">材料命名：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_name" class="layui-input" style="border-radius: 10px;margin-top: 5%" placeholder="请输入材料名">' +
+          '</div>' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label" style="margin-top: 3%">上传材料：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_file" class="layui-input" style="border-radius: 10px;margin-top: 5%;width: 135%" type="file">' +
+          '</div>' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">点击上传材料：</span>' +
-          '<input id="d_new_material_file" class="form-control" type="file">' +
-          "</div>" +
-          "</div>" +
+          '</div>' +
+          "</form>" +
           "</div>",
         btn: ["添加", "取消"],
         btn1: function(index, layero) {
@@ -243,17 +246,21 @@ export default {
         area: ["450px", "auto"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">材料命名：</span>' +
-          '<input id="d_new_material_name" class="form-control" placeholder="请输入材料名">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<form class="layui-form" style="padding-left: 12%">' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">材料命名：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_name" class="layui-input" style="border-radius: 10px" placeholder="请输入材料名">' +
+          '</div>' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">材料地址：</span>' +
-          '<input id="d_new_material_url" class="form-control" placeholder="请输入材料地址">' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">材料地址：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_material_url" class="layui-input" style="border-radius: 10px" placeholder="请输入材料地址">' +
+          '</div>' +
           "</div>" +
-          "</div>" +
+          "</form>" +
           "</div>",
         btn: ["添加", "取消"],
         btn1: function(index, layero) {
@@ -276,20 +283,23 @@ export default {
         type: 1,
         title: "添加实战例题",
         skin: "layui-layer-rim",
-        area: ["450px", "auto"],
+        area: ["450px", "275px"],
 
         content:
-          '<div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
-          '<div class="col-sm-12">' +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">例题命名：</span>' +
-          '<input id="d_new_problem_name" class="form-control" placeholder="请输入例题名">' +
+          '<div class="layui-row" style="width: 420px;  margin-left:7px; margin-top:10px;">' +
+          '<form class="layui-form" style="padding-left: 12%">' +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">例题命名：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_problem_name" class="layui-input" style="border-radius: 10px" placeholder="请输入例题名">' +
+          '</div>' +
           "</div>" +
-          '<div class="input-group">' +
-          '<span class="input-group-addon">例题地址：</span>' +
-          '<input id="d_new_problem_url" class="form-control" placeholder="请输入材料地址">' +
-          "</div>" +
-          "</div>" +
+          '<div class="layui-form-item">' +
+          '<span class="layui-form-label">例题地址：</span>' +
+          '<div class="layui-input-inline">' +
+          '<input id="m_new_problem_url" class="layui-input" style="border-radius: 10px" placeholder="请输入材料地址">' +
+          '</div>' +
+          "</form>" +
           "</div>",
         btn: ["添加", "取消"],
         btn1: function(index, layero) {
@@ -317,7 +327,7 @@ ul li {
 #viewDetail_background {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
-  text-align: 1.5;
+  text-align: center;
   z-index: 1000;
   display: none;
   position: fixed;
@@ -337,7 +347,7 @@ ul li {
 
 #viewDetail_close {
   padding: 5px;
-  background: #ff6a6a;
+  background: #009f95;
 }
 
 #viewDetail_close-button {

@@ -3,29 +3,35 @@
   <div id="newMindMap_background" class="back">
     <div class="newMindMap">
       <div id="newMindMap_close">
-        <span id="newMindMap_close-button">×</span>
+        <span id="newMindMap_close-button" style="margin-top: auto">×</span>
         <h2>详细内容</h2>
       </div>
-      <div style="height:625px">
-        <div class="container">
+      <div style="height:575px;margin-top: 5%">
+        <div class="container" style="width: 92%">
           <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <form>
-                <div class="row">
-                  <label class="col-sm-6 col-md-6 col-lg-6">导图名称</label>
-                  <input ref="nam_name" class="col-sm-6 col-md-6 col-lg-6" type="text" />
+            <div>
+              <form class="layui-form" style="width:100%;padding-left: 30%">
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger;width:18%;">导图名称</label>
+                  <div class="layui-input-inline" style="width: 40%">
+                    <input ref="nam_name" required lay-verify="required" class="layui-input" type="text" style="border-radius: 10px"/>
+                  </div>
                 </div>
-                <div class="row">
-                  <label class="col-sm-6 col-md-6 col-lg-6">导图简介</label>
-                  <textarea ref="nam_brief" class="col-sm-6 col-md-6 col-lg-6"></textarea>
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger;width:18%;">导图简介</label>
+                  <div class="layui-input-inline" style="width: 40%">
+                    <textarea ref="nam_name" required lay-verify="required" class="layui-textarea" type="text" style="border-radius: 10px"/>
+                  </div>
                 </div>
-                <div class="row">
-                  <label class="col-sm-6 col-md-6 col-lg-6">首节点命名</label>
-                  <input ref="nam_firstnode_name" class="col-sm-6 col-md-6 col-lg-6" type="text" />
+                <div class="row layui-form-item">
+                  <label class="layui-form-label" style="font-size: larger;width:18%;">首节点命名</label>
+                  <div class="layui-input-inline" style="width: 40%">
+                    <input ref="nam_name" required lay-verify="required" class="layui-input" type="text" style="border-radius: 10px"/>
+                  </div>
                 </div>
-                <span class="help-block">修改任何信息都需要点击提交.</span>
+                <div class="help-block" style="color: dimgray;margin: 5%;margin-left: -30%;font-size: large">修改任何信息都需要点击提交噢~</div>
               </form>
-              <button type="submit" class="btn" @click="newaMindMap">提交</button>
+              <button type="submit" class="layui-btn" @click="newaMindMap" style="font-size: large">提交</button>
             </div>
           </div>
         </div>
@@ -101,7 +107,7 @@ ul li {
 #newMindMap_background {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
-  text-align: 1.5;
+  text-align: center;
   z-index: 1000;
   display: none;
   position: fixed;
@@ -121,7 +127,7 @@ ul li {
 
 #newMindMap_close {
   padding: 5px;
-  background: #ff6a6a;
+  background:#a5bbcc;
 }
 
 #newMindMap_close-button {

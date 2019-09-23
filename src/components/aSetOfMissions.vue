@@ -7,9 +7,9 @@
             class="row"
             style="background-color: transparent;box-shadow:0px 0px 8px 5px #ccc;margin-bottom:1%;width:100%;height:40px"
           >
-            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%">{{info.year}}</label>
-            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%">{{info.month}}</label>
-            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%">{{info.status}}</label>
+            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%;font-size: large;padding-top:0.7%">{{info.year}}</label>
+            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%;font-size: large;padding-top:0.7%">{{info.month}}</label>
+            <label class="col-sm-4 col-md-4 col-lg-4" style="height:100%;font-size: large;padding-top:0.7%">{{info.status}}</label>
           </div>
         </div>
       </a>
@@ -55,12 +55,12 @@ export default {
 <style scoped>
 @import "../../static/bootstrap-3.3.7-dist/css/bootstrap.min.css";
 .Future{
-  background-color: aquamarine
+  background-color:#a5bbcc;
 }
 .Now{
-  background-color: deeppink
+  background-color: #b9def0;
 }
 .Past{
-  
+  background-color: floralwhite;
 }
 </style>

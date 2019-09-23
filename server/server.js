@@ -73,7 +73,7 @@ app.all('*', function (req, res, next) {
 //     //设为指定的域
 //     res.header('Access-Control-Allow-Origin', "http://127.0.0.1:8080");
 //     //设置Access-Control-Allow-Credentials为true
-//     res.header('Access-Control-Allow-Credentials', true); 
+//     res.header('Access-Control-Allow-Credentials', true);
 //     next();
 // });
 
